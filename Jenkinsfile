@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'my-docker-image'
+        IMAGE_NAME = 'jenkins-jb-lab'
         VERSION = "v${env.BUILD_NUMBER}"
-        REPO = 'yoavkatz/jenkins-jb-lab'
+        REPO = 'yoavkatz'
         CREDENTIALS_ID = 'docker_yoav'
     }
 
