@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = 'my-docker-image'
         VERSION = "v${env.BUILD_NUMBER}"
-        REPO = 'jenkins-jb-lab'
+        REPO = 'yoavkatz/jenkins-jb-lab'
         CREDENTIALS_ID = 'docker_yoav'
     }
 
@@ -36,7 +36,6 @@ pipeline {
                         sh '''
                         docker push ${REPO}/${IMAGE_NAME}:${VERSION}
                         docker tag ${REPO}/${IMAGE_NAME}:${VERSION} ${REPO}/${IMAGE_NAME}:latest
-                        docker push ${REPO}/${IMAGE_NAME}:latest
                         '''
                     }
                 }
