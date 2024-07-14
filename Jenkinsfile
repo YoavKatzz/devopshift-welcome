@@ -34,8 +34,9 @@ pipeline {
                 script {
                     docker.withRegistry("https://index.docker.io/v1/", "${CREDENTIALS_ID}") {
                         sh '''
+                        docker push ${REPO}/${IMAGE_NAME}:${VERSION}-test
                         docker tag ${REPO}/${IMAGE_NAME}:${VERSION}-test ${REPO}/${IMAGE_NAME}:latest
-                        docker push ${REPO}/${IMAGE_NAME}:${VERSION}
+
                         '''
                     }
                 }
