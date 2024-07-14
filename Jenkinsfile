@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker build --target test --tag ${IMAGE_NAME}:${VERSION}-test -f app/bookinfo/src/productpage/Dockerfile .
+                    docker build --target test --tag ${IMAGE_NAME}:${VERSION}-test -f welcome/app/bookinfo/src/productpage/Dockerfile .
                     '''
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker build --target test --tag ${IMAGE_NAME}:${VERSION}-test .
+                    docker build --target test --tag ${IMAGE_NAME}:${VERSION}-test -f welcome/app/bookinfo/src/productpage/Dockerfile .
                     docker run --rm ${IMAGE_NAME}:${VERSION}-test
                     '''
                 }
