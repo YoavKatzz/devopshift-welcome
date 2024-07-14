@@ -29,6 +29,17 @@ pipeline {
                 }
             }
         }
+        stage('linting'){
+            steps{
+                script{
+                    sh''''
+                    docker build --target test --tag ${IMAGE_NAME}:${VERSION}-linting-test -f welcome/app/bookinfo/src/ratings/Dockerfile welcome/app/bookinfo/src/ratings
+                    docker run --rm ${IMAGE_NAME}:${VERSION}-linting-test
+
+                    '''
+                }
+            }
+        }
         stage('Push') {
             steps {
                 script {
@@ -41,5 +52,6 @@ pipeline {
                 }
             }
         }
+
         }
 }
