@@ -33,8 +33,8 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker build --target linting-test --tag ${IMAGE_NAME}:${VERSION}-linting-test -f welcome/app/bookinfo/src/ratings/Dockerfile welcome/app/bookinfo/src/ratings
-                    docker run --rm ${IMAGE_NAME}:${VERSION}-linting-test
+                    docker build --target lint-test --tag ${IMAGE_NAME}:${VERSION}-lint-test -f welcome/app/bookinfo/src/ratings/Dockerfile welcome/app/bookinfo/src/ratings
+                    docker run --rm ${IMAGE_NAME}:${VERSION}-lint-test
                     '''
                 }
             }
