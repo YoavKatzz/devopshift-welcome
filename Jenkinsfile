@@ -6,6 +6,7 @@ pipeline {
         VERSION = "v${env.BUILD_NUMBER}"
         REPO = 'yoavkatz'
         CREDENTIALS_ID = 'docker_yoav'
+        SNYK_TOKEN = 'github_yoav'
     }
 
         stages {
@@ -39,6 +40,17 @@ pipeline {
                 }
             }
         }
+        stage('Security'){
+            steps {
+                script {
+                    sh'''
+                    docker build --target security--build-arg SNYK_TOKEN=${SNYK_TOKEN} --tag ${IMAGE_NAME}:${VERSION}-security -f welcome/app/bookinfo/src/reviews/Dockerfile welcome/app/bookinfo/src/reviews
+                    docker run --rm ${IMAGE_NAME}:${VERSION}-security
+                    '''
+                }
+            }
+        }
+        
         stage('Push') {
             steps {
                 script {
@@ -51,6 +63,7 @@ pipeline {
                 }
             }
         }
+        
 
         }
 }
