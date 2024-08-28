@@ -6,6 +6,17 @@ metadata:
   name: bookinfo-application
   namespace: argocd
 spec:
+    syncPolicy:
+      automated:
+        prune: false
+        self-heal: true
+    syncOptions:
+      - CreateNamespace=true
+      hooks:
+        - type: SyncFail
+          command: ["/bin/sh", "-c"]
+          args: ["echo SyncFail hook executed"]
+
   project: {{ .Values.argoApplication.project }}
   source:
     repoURL: '{{ .Values.argoApplication.repoURL }}'
