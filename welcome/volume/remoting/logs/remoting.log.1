@@ -1,0 +1,48 @@
+Jan 28, 2025 6:21:04 PM hudson.remoting.Launcher$CuiListener status
+INFO: Locating server among [http://jenkins:8080/]
+Jan 28, 2025 6:21:04 PM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+INFO: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
+Jan 28, 2025 6:21:04 PM hudson.remoting.Launcher$CuiListener status
+INFO: Agent discovery successful
+  Agent address: jenkins
+  Agent port:    50000
+  Identity:      06:05:c3:b1:f4:81:82:dc:8a:ed:a6:b5:70:52:c3:6c
+Jan 28, 2025 6:21:04 PM hudson.remoting.Launcher$CuiListener status
+INFO: Handshaking
+Jan 28, 2025 6:21:04 PM hudson.remoting.Launcher$CuiListener status
+INFO: Connecting to jenkins:50000
+Jan 28, 2025 6:21:04 PM hudson.remoting.Launcher$CuiListener status
+INFO: Server reports protocol JNLP4-connect-proxy not supported, skipping
+Jan 28, 2025 6:21:04 PM hudson.remoting.Launcher$CuiListener status
+INFO: Trying protocol: JNLP4-connect
+Jan 28, 2025 6:21:04 PM org.jenkinsci.remoting.protocol.impl.BIONetworkLayer$Reader run
+INFO: Waiting for ProtocolStack to start.
+Jan 28, 2025 6:21:05 PM hudson.remoting.Launcher$CuiListener status
+INFO: Remote identity confirmed: 06:05:c3:b1:f4:81:82:dc:8a:ed:a6:b5:70:52:c3:6c
+Jan 28, 2025 6:21:05 PM hudson.remoting.Launcher$CuiListener status
+INFO: Connected
+Jan 28, 2025 6:22:43 PM hudson.remoting.Launcher$CuiListener status
+INFO: Terminated
+Jan 28, 2025 6:22:57 PM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFO: Failed to connect to http://jenkins:8080/. Will try again
+java.net.UnknownHostException: jenkins
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:229)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:508)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:603)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:276)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:375)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:396)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+	at org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver.waitForReady(JnlpAgentEndpointResolver.java:424)
+	at hudson.remoting.Engine.innerRun(Engine.java:922)
+	at hudson.remoting.Engine.run(Engine.java:563)
+
+Jan 28, 2025 6:23:07 PM hudson.remoting.Launcher$CuiListener status
+INFO: Performing onReconnect operation.
+Jan 28, 2025 6:23:07 PM jenkins.slaves.restarter.JnlpSlaveRestarterInstaller$EngineListenerAdapterImpl onReconnect
+INFO: Restarting agent via jenkins.slaves.restarter.UnixSlaveRestarter@23a97691
