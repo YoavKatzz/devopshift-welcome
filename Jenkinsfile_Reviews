@@ -45,6 +45,9 @@ pipeline {
                         sh '''
                         docker tag  ${IMAGE_NAME}:${VERSION}-test  ${REPO}/${IMAGE_NAME}:latest
                         docker push ${REPO}/${IMAGE_NAME}:latest
+                        docker tag  ${IMAGE_NAME}:${VERSION}-test  ${REPO}/${IMAGE_NAME}:${VERSION}
+                        docker push ${REPO}/${IMAGE_NAME}:${VERSION}
+
                         '''
                     }
                 }
