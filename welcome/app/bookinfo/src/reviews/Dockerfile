@@ -21,7 +21,7 @@ ENV SNYK_TOKEN=${SNYK_TOKEN}
 RUN ./snyk test /home/gradle/ --all-sub-projects
 
 # Run Stage
-FROM open-liberty:24.0.0.1-kernel-slim-java17-openj9
+FROM open-liberty:24.0.0.1-kernel-slim-java17-openj9 as run
 
 ENV SERVERDIRNAME reviews
 
