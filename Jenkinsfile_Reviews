@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker build --target build --tag ${IMAGE_NAME}:${VERSION}-build -f welcome/app/bookinfo/src/reviews/Dockerfile welcome/app/bookinfo/src/reviews
+                    docker build --target builder --tag ${IMAGE_NAME}:${VERSION}-builder -f welcome/app/bookinfo/src/reviews/Dockerfile welcome/app/bookinfo/src/reviews
                     '''
                 }
             }
